@@ -25,3 +25,19 @@ Console.WriteLine($"Имя: {artem.Name}");
 Console.WriteLine($"Здоровье: {artem.Health}");
 Console.WriteLine($"Уровень: {artem.Level}");
 Console.WriteLine($"Опыт: {artem.Experience}");
+
+
+
+Console.WriteLine();
+Console.WriteLine(">>> Каталог игр <<<");
+
+Game witcher = new Game("The Witcher 3", "RPG", 2015);
+Game minecraft = new Game("Minecraft", "Sandbox", 2011);
+Game cyberpunk = new Game("Cyberpunk 2077", "RPG", 2020);
+
+witcher.Rating = 9.8;
+minecraft.Rating = 9.5;
+
+Console.WriteLine($"Название: {witcher.Title}, Жанр: {witcher.Genre}, Год: {witcher.ReleaseYear}, Рейтинг: {witcher.Rating}");
+Console.WriteLine($"Название: {minecraft.Title}, Жанр: {minecraft.Genre}, Год: {minecraft.ReleaseYear}, Рейтинг: {minecraft.Rating}");
+Console.WriteLine($"Название: {cyberpunk.Title}, Жанр: {cyberpunk.Genre}, Год: {cyberpunk.ReleaseYear}, Рейтинг: {cyberpunk.Rating}");
