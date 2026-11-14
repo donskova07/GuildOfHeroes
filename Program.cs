@@ -47,7 +47,8 @@ Console.WriteLine($"Артём жив: {artem.IsAlive()}");
 
 if (yaroslavAlive) {
     Console.WriteLine("Ярослав может продолжать приключение.");
-} else {
+}
+else {
     Console.WriteLine("Ярослав больше не может сражаться.");
 }
 string info = yaroslav.GetInfo();
@@ -60,9 +61,8 @@ Console.WriteLine();
 Console.WriteLine(artem.GetInfo());
 
 
-
 Console.WriteLine();
-Console.WriteLine(">>> Каталог игр <<<");
+Console.WriteLine(">>> каталог игр <<<");
 
 Game witcher = new Game("The Witcher 3", "RPG", 2015);
 Game minecraft = new Game("Minecraft", "Sandbox", 2011);
@@ -71,6 +71,34 @@ Game cyberpunk = new Game("Cyberpunk 2077", "RPG", 2020);
 witcher.Rating = 9.8;
 minecraft.Rating = 9.5;
 
-Console.WriteLine($"Название: {witcher.Title}, Жанр: {witcher.Genre}, Год: {witcher.ReleaseYear}, Рейтинг: {witcher.Rating}");
-Console.WriteLine($"Название: {minecraft.Title}, Жанр: {minecraft.Genre}, Год: {minecraft.ReleaseYear}, Рейтинг: {minecraft.Rating}");
-Console.WriteLine($"Название: {cyberpunk.Title}, Жанр: {cyberpunk.Genre}, Год: {cyberpunk.ReleaseYear}, Рейтинг: {cyberpunk.Rating}");
+Console.WriteLine($"название: {witcher.Title}, жанр: {witcher.Genre}, год: {witcher.ReleaseYear}, рейтинг: {witcher.Rating}");
+Console.WriteLine($"название: {minecraft.Title}, жанр: {minecraft.Genre}, год: {minecraft.ReleaseYear}, рейтинг: {minecraft.Rating}");
+Console.WriteLine($"название: {cyberpunk.Title}, жанр: {cyberpunk.Genre}, год: {cyberpunk.ReleaseYear}, рейтинг: {cyberpunk.Rating}");
+
+
+Console.WriteLine();
+Console.WriteLine(">>> проверка действий <<<");
+
+Console.WriteLine($"рейтинг Cyberpunk до изменений: {cyberpunk.Rating}");
+cyberpunk.UpdateRating(8.7);
+Console.WriteLine($"после допустимого вызова: {cyberpunk.Rating}");
+cyberpunk.UpdateRating(25.0);
+Console.WriteLine($"после неверного вызова: {cyberpunk.Rating}");
+
+witcher.AddPlayHours(120);
+witcher.AddPlayHours(-5);
+Console.WriteLine($"часы в Witcher 3: {witcher.PlayHours}");
+
+Console.WriteLine($"Witcher 3 высоко оценён: {witcher.IsHighlyRated()}");
+Console.WriteLine($"Cyberpunk 2077 высоко оценён: {cyberpunk.IsHighlyRated()}");
+
+
+minecraft.AddPlayHours(40);
+Console.WriteLine($"часы в Minecraft: {minecraft.PlayHours}, в Witcher 3 по-прежнему: {witcher.PlayHours}");
+
+Console.WriteLine();
+Console.WriteLine(witcher.GetInfo());
+Console.WriteLine();
+Console.WriteLine(minecraft.GetInfo());
+Console.WriteLine();
+Console.WriteLine(cyberpunk.GetInfo());
