@@ -94,7 +94,7 @@ Console.WriteLine($"Cyberpunk 2077 высоко оценён: {cyberpunk.IsHighl
 
 
 minecraft.AddPlayHours(40);
-Console.WriteLine($"часы в Minecraft: {minecraft.PlayHours}, в Witcher 3 по-прежнему: {witcher.PlayHours}");
+Console.WriteLine($"часы в Minecraft: {minecraft.PlayHours}, в Witcher 3 по прежнему: {witcher.PlayHours}");
 
 Console.WriteLine();
 Console.WriteLine(witcher.GetInfo());
