@@ -1,8 +1,13 @@
 ﻿Hero yaroslav = new Hero("Ярослав", 100);
 Hero anastasia = new Hero("Анастасия", 90);
 Hero artem = new Hero("Артём", 120);
-Hero alexander = new Hero("Александр", 150);
+Hero alexander = new Hero("   Александр   ", 150);
 
+alexander.TakeDamage(10);
+alexander.Heal(10);
+
+Console.WriteLine(">>> Участники готовы <<<");
+Console.WriteLine();
 Console.WriteLine(yaroslav.GetInfo());
 Console.WriteLine();
 Console.WriteLine(anastasia.GetInfo());
@@ -10,6 +15,8 @@ Console.WriteLine();
 Console.WriteLine(artem.GetInfo());
 Console.WriteLine();
 Console.WriteLine(alexander.GetInfo());
+Console.WriteLine($"Предел здоровья Александра: {alexander.MaxHealth}");
+
 
 
 // alexander.Health = 5000;
@@ -38,6 +45,15 @@ alexander.Heal(20);
 Console.WriteLine($"Восстановление: {alexander.Health}");
 Console.WriteLine($"Артём без изменений: {artem.Health}/{artem.MaxHealth}");
 
+// Hero spacedProbe = new Hero("   Александр   ", 150);
+// Hero emptyProbe = new Hero("   ", 100);
+
+// Console.WriteLine($"Имя с пробелами: [{spacedProbe.Name}]");
+// Console.WriteLine($"Пустая запись: [{emptyProbe.Name}]");
+// yaroslav.GainExperience(40);
+// yaroslav.GainExperience(-10);
+// yaroslav.GainExperience(2147483647);
+// Console.WriteLine($"После проверок опыта: {yaroslav.Experience}");
 
 
 
@@ -48,8 +64,9 @@ Game witcher = new Game("The Witcher 3", "RPG", 2015);
 Game minecraft = new Game("Minecraft", "Sandbox", 2011);
 Game cyberpunk = new Game("Cyberpunk 2077", "RPG", 2020);
 
-witcher.Rating = 9.8;
-minecraft.Rating = 9.5;
+witcher.UpdateRating(9.8);
+minecraft.UpdateRating(9.5);
+
 
 Console.WriteLine($"название: {witcher.Title}, жанр: {witcher.Genre}, год: {witcher.ReleaseYear}, рейтинг: {witcher.Rating}");
 Console.WriteLine($"название: {minecraft.Title}, жанр: {minecraft.Genre}, год: {minecraft.ReleaseYear}, рейтинг: {minecraft.Rating}");

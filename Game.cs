@@ -1,9 +1,9 @@
 public class Game {
-    public string Title;
-    public string Genre;
-    public int ReleaseYear;
-    public double Rating;
-    public int PlayHours;
+    public string Title { get; private set; }
+    public string Genre { get; private set; }
+    public int ReleaseYear { get; private set; }
+    public double Rating { get; private set; }
+    public int PlayHours { get; private set; }
 
     public Game(string title, string genre, int releaseYear) {
         Title = title;
