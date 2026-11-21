@@ -64,6 +64,23 @@ Console.WriteLine($"Артём без изменений: {artem.Health}/{artem.
 // yaroslav.GainExperience(-10);
 // yaroslav.GainExperience(2147483647);
 // Console.WriteLine($"После проверок опыта: {yaroslav.Experience}");
+int strongCount = 0;
+foreach (Hero hero in guild.Heroes) {
+    if (hero.Health >= 120) {
+        strongCount += 1;
+    }
+}
+Console.WriteLine($"Могут нести тяжёлые ящики (здоровье от 120): {strongCount}");
+
+if (guild.Heroes.Count > 0) {
+    Hero strongest = guild.Heroes[0];
+    foreach (Hero hero in guild.Heroes) {
+        if (hero.Health > strongest.Health) {
+            strongest = hero;
+        }
+    }
+    Console.WriteLine($"Самый здоровый: {strongest.Name} ({strongest.Health})");
+}
 
 
 
@@ -76,11 +93,25 @@ Game cyberpunk = new Game("Cyberpunk 2077", "RPG", 2020);
 
 witcher.UpdateRating(9.8);
 minecraft.UpdateRating(9.5);
+List<Game> library = new List<Game>();
+
+library.Add(witcher);
+library.Add(minecraft);
+library.Add(cyberpunk);
+
+if (library.Count > 0) {
+    Console.WriteLine($"игр в каталоге: {library.Count}");
+    Console.WriteLine($"первая: {library[0].Title}");
+    Console.WriteLine($"последняя: {library[library.Count - 1].Title}");
+}
 
 
-Console.WriteLine($"название: {witcher.Title}, жанр: {witcher.Genre}, год: {witcher.ReleaseYear}, рейтинг: {witcher.Rating}");
-Console.WriteLine($"название: {minecraft.Title}, жанр: {minecraft.Genre}, год: {minecraft.ReleaseYear}, рейтинг: {minecraft.Rating}");
-Console.WriteLine($"название: {cyberpunk.Title}, жанр: {cyberpunk.Genre}, год: {cyberpunk.ReleaseYear}, рейтинг: {cyberpunk.Rating}");
+Console.WriteLine();
+foreach (Game game in library) {
+    Console.WriteLine(game.GetInfo());
+    Console.WriteLine();
+}
+
 
 
 Console.WriteLine();
@@ -91,6 +122,9 @@ cyberpunk.UpdateRating(8.7);
 Console.WriteLine($"после допустимого вызова: {cyberpunk.Rating}");
 cyberpunk.UpdateRating(25.0);
 Console.WriteLine($"после неверного вызова: {cyberpunk.Rating}");
+
+
+
 
 witcher.AddPlayHours(120);
 witcher.AddPlayHours(-5);
@@ -103,6 +137,23 @@ Console.WriteLine($"Cyberpunk 2077 высоко оценён: {cyberpunk.IsHighl
 minecraft.AddPlayHours(40);
 Console.WriteLine($"часы в Minecraft: {minecraft.PlayHours}, в Witcher 3 по прежнему: {witcher.PlayHours}");
 
+library.Add(new Game("Roblox", "Sandbox", 2006));
+Console.WriteLine($"после добавления четвёртой игры: {library.Count}");
+int longGames = 0;
+foreach (Game game in library) {
+    if (game.PlayHours > 100) {
+        longGames += 1;
+    }
+}
+Console.WriteLine($"игры больше 100 часов: {longGames}");
+cyberpunk.AddPlayHours(50);
+Console.WriteLine($"наиграно в Cyberpunk 2077 через список: {library[2].PlayHours}");
+
+Console.WriteLine();
+foreach (Game game in library) {
+    Console.WriteLine(game.GetInfo());
+    Console.WriteLine();
+}
 Console.WriteLine();
 Console.WriteLine(witcher.GetInfo());
 Console.WriteLine();
